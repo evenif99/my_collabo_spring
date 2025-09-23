@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 // 이전의 Dao 역할
 // JpaRepository<엔터티 이름, 해당 엔터티의 기본 키 변수의 타입>
 public interface MemberRepository extends JpaRepository<Member, Long> { // 상속 개념
-    // findByEmail를 JPA에서는 '쿼리 메소드'라고 부릅니다.
+    // findByEmail을 JPA에서는 '쿼리 메소드'라고 부릅니다.
     // 이메일 정보를 이용하여 해당 회원이 존재하는지 체크합니다.
     Member findByEmail(String email); // 추상 메소드의 형태
 }

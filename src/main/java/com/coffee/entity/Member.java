@@ -22,7 +22,7 @@ public class Member {
     @Column(name = "member_id") // 컬럼 이름을 변경합니다.
     private Long id;
 
-    @NotBlank(message = "이름은 필수 입력 사항입니다.")
+    @NotBlank(message = "이름은 필수 입력 사항입니다.") // vaidation check 사항(유효성 검사)
     private String name;
 
     // 필수 사항이고, 절대로 동일한 값이 들어오면 안됩니다.
