@@ -180,4 +180,16 @@ public class ProductController {
             return base64Image;
         }
     }
+
+    @GetMapping("/detail/{id}") // 프론트 엔드가 상품에 대한 상세 정보를 요청하였습니다.
+    public ResponseEntity<Product> detail(@PathVariable Long id){
+        Product product = this.productService.getProductById(id);
+
+        if(product == null){ // 404 NOT_FOUND 응답
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+
+        }else { // 200 ok 응답
+            return ResponseEntity.ok(product);
+        }
+    }
 }
