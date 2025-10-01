@@ -13,26 +13,26 @@ import java.util.Random;
 // 테스트 용도를 위하여 '회원', '상품' 등의 임시 데이터를 생성하기 위한 자바 클래스
 public class GenerateData {
     // 주의) SpringBoot가 아닌 일반 Test 모드에서는 @Value를 사용할 수 없습니다.
-    private final String imageFolder = "c:\\shop\\images";
+    private final String imageFolder = "c:\\shop\\images" ;
 
     // 특정 폴더 내에 들어 있는 모든 이미지 파일의 이름을 List 컬렉션으로 반환해 줍니다.
     public List<String> getImageFileNames() {
         // File : 파일이나 폴더를 객체 형태로 다루고자 할때 사용하는 클래스
         File folder = new File(imageFolder);
-        List<String> imageFiles = new ArrayList<>(); // 이미지 이름들을 저장할 컬렉션
+        List<String> imageFiles = new ArrayList<>() ; // 이미지 이름들을 저장할 컬렉션
 
         // exists()는 해당 객체가 실제로 존재하면 true
         // isDirectory()는 해당 객체가 폴더이면 true
-        if (!folder.exists() || !folder.isDirectory()) {
-            System.out.println(imageFolder + "폴더가 존재하지 않습니다.");
-            return imageFiles;
+        if(!folder.exists() || !folder.isDirectory()){
+            System.out.println(imageFolder + " 폴더가 존재하지 않습니다");
+            return imageFiles ;
         }
-
+        
         // 추가 코딩 예정
         String[] imageExtensions = {".jpg", ".jpeg", ".png"}; // 관심 있는 파일의 확장자
         File[] fileList = folder.listFiles(); // 파일 객체 목록
 
-        // 모든 파일의 이름을 소문자로 변경 후 확장자와 비교 후 조건에 부합하면 컬렉션에 추가합니다.
+        // 모든 파일의 이름을 소문자로 변경 후 확장자와 비교후 조건에 부합하면 컬렉션에 추가합니다.
         if (fileList != null) {
             for (File file : fileList) {
                 if (file.isFile() && Arrays.stream(imageExtensions)
@@ -41,9 +41,10 @@ public class GenerateData {
                 }
             }
         }
-
-        return imageFiles;
+        
+        return imageFiles ;
     }
+
     public Product createProduct(int index, String imageName) {
         Product product = new Product();
 
@@ -85,4 +86,5 @@ public class GenerateData {
         String[] fruits = {"아메리카노", "바닐라라떼", "우유", "에스프레소", "크로아상", "치아바타", "당근 케이크"};
         return fruits[new Random().nextInt(fruits.length)];
     }
+
 }

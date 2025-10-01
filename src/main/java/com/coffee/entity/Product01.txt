@@ -1,7 +1,7 @@
 package com.coffee.entity;
 
 import com.coffee.constant.Category;
-import jakarta.persistence.*;
+import jakarta.persistence.* ;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -15,26 +15,25 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "product_id")
-    private Long id;
+    private Long id ;
 
     @Column(nullable = false) // 값 입력 필수
-    private String name;
+    private String name ;
 
     @Column(nullable = false)
-    @Min(value = 100, message = "가격은 100원 이상이어야 합니다.") // cf) @Max
-    private int price;
+    private int price ;
 
     @Enumerated(EnumType.STRING)
     private Category category;
 
     @Column(nullable = false)
-    private int stock;
+    private int stock ;
 
     @Column(nullable = false)
-    private String image;
+    private String image ;
 
     @Column(nullable = false, length = 1000)
-    private String description;
+    private String description ;
 
-    private LocalDate inputdate; // 입고 일자
+    private LocalDate inputdate ; // 입고 일자
 }

@@ -15,7 +15,7 @@ public class FruitController {
         bean.setId("banana");
         bean.setName("바나나");
         bean.setPrice(1000);
-        return bean;
+        return bean ;
     }
 
     @GetMapping("/fruit/list")
@@ -24,6 +24,6 @@ public class FruitController {
         fruitList.add(new Fruit("apple", "사과", 1000));
         fruitList.add(new Fruit("pear", "나주배", 2000));
         fruitList.add(new Fruit("grape", "포도", 3000));
-        return fruitList;
+        return fruitList ;
     }
 }

@@ -12,11 +12,11 @@ import java.time.LocalDate;
 
 @SpringBootTest // 이 클래스는 간단한 테스트를 위한 용도로 사용합니다.
 public class MemberTest {
-    @Autowired // 의존하고 있는 객체를 외부에서 자동 주입합니다. setter 또는 생성자 주입이 주목적 (Dependency Injection, DI)
-    private MemberRepository memberRepository; // 인터페이스의 참조자료형 기본값은 null
+    @Autowired // 의존하고 있는 객체를 외부에서 자동 주입합니다.
+    private MemberRepository memberRepository; // 기본 값 null
 
     @Test
-    @DisplayName("회원 몇명 추가하기")
+    @DisplayName("회원 몇 명 추가하기")
     public void insertMemberList(){
         // 회원 몇 명을 추가해 봅니다.
         Member mem01 = new Member();
@@ -27,8 +27,8 @@ public class MemberTest {
         mem01.setRole(Role.ADMIN);
         mem01.setRegdate(LocalDate.now());
 
-        memberRepository.save(mem01); // 데이터 베이스의 insert에 해당
-        System.out.println("---------------------------------");
+        memberRepository.save(mem01) ; // 데이터 베이스에 인서트
+        System.out.println("----------------------------------------");
 
         Member mem02 = new Member();
         mem02.setName("유영석");
