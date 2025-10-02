@@ -110,10 +110,11 @@ public class OrderController {
 
         if(role == Role.ADMIN){ // 관리자이면 모든 주문 내역을 조회하기
             // System.out.println("관리자");
-            orders = orderService.findAllOrders();
+            orders = orderService.findAllOrders(OrderStatus.PENDING);
+
         }else{ // 일반인인 경우에는 자기 주문 정보만 조회하기
             // System.out.println("일반인");
-             orders = orderService.findByMemberId(memberId);
+             orders = orderService.findByMemberId(memberId, OrderStatus.PENDING);
         }
 
 
@@ -172,7 +173,7 @@ public class OrderController {
 
         // 여기서부터 재고 수량 증가를 위한 코드입니다.
         Optional<Order> orderOptional = orderService.findOrderById(orderId);
-        if(!orderOptional.isEmpty()){
+        if(orderOptional.isEmpty()){
             return ResponseEntity.notFound().build();
         }
 
